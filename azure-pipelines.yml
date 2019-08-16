@@ -16,12 +16,8 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    npm cache clean --force
-    npm install -g @vue/cli
-  displayName: 'cli install'
-
-- script: |
+    npm install -g @vue/cli --save-dev
     npm install
-    npx run vue-cli-service build
+    npm run build
   displayName: 'run build'
 
