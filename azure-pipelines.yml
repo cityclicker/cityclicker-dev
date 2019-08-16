@@ -18,6 +18,10 @@ steps:
 - script: |
     npm cache clean --force
     npm install -g @vue/cli
+  displayName: 'cli install'
+
+- script: |
     npm install
-    npm run build
-  displayName: 'npm install, run webpack'
+    npm run Build
+  displayName: 'run build'
+
