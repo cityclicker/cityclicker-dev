@@ -9,6 +9,11 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+-  task: DownloadSecureFile@1
+  name: github
+  inputs:
+    secureFile: github
+
 - task: InstallSSHKey@0
   inputs:
     knownHostsEntry: github.com,140.82.113.4
