@@ -26,7 +26,7 @@ steps:
     git init
     git remote add origin "https://github.com/cityclicker/cityclicker.github.io.git"
     git add .
-    git commit -m "update " + date
+    git commit -m "update live site"
     git push origin master --force
   displayName: 'push to site'
 
