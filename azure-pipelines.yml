@@ -28,9 +28,9 @@ steps:
     git config --global user.name "ADO Bot"
 
     git init
-    git remote add origin "https://github.com/cityclicker/cityclicker.github.io.git"
+    git remote add origin "https://$GITHUBUSER:$GITHUBKEY@github.com/cityclicker/cityclicker.github.io.git"
     git add .
     git commit -m "update live site"
-    git push origin master --force
+    git push origin master --force 
   displayName: 'push to site'
 
