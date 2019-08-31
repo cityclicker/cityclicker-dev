@@ -23,6 +23,10 @@ steps:
 
 - script: |
     cd dist
+
+    git config --global user.email ""
+    git config --global user.name "ADO Bot"
+
     git init
     git remote add origin "https://github.com/cityclicker/cityclicker.github.io.git"
     git add .
