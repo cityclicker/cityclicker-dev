@@ -9,7 +9,7 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
--  task: DownloadSecureFile@1
+- task: DownloadSecureFile@1
   name: 'github'
   inputs:
     secureFile: 'github'
