@@ -10,6 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 - task: DownloadSecureFile@1
+  displayName: 'Add SSH cert'
   name: githubCert
   inputs:
     secureFile: 'github'
