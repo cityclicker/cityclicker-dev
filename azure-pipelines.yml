@@ -16,7 +16,7 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    npm install -g @vue/cli --save-dev
+    npm install -g @vue/cli
     npm install
     npm run build
   displayName: 'run build'
