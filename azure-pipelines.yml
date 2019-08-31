@@ -8,13 +8,13 @@ trigger:
 
 pool:
   vmImage: 'ubuntu-latest'
-  
+
 steps:
 - task: DownloadSecureFile@1
   displayName: 'Add SSH cert'
   name: githubCert
   inputs:
-    secureFile: '629e70cd-370a-4d3e-a170-19e34f33b950'
+    secureFile: 'github'
 
 - task: InstallSSHKey@0
   displayName: 'Install SSH Key'
