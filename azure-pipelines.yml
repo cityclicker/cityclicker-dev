@@ -10,7 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 - task: DownloadSecureFile@1
-  name: 'github'
+  name: github
   inputs:
     secureFile: 'github'
 
