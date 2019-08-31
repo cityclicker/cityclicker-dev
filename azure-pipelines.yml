@@ -8,7 +8,8 @@ trigger:
 
 pool:
   vmImage: 'ubuntu-latest'
-
+  
+steps:
 - task: DownloadSecureFile@1
   displayName: 'Add SSH cert'
   name: githubCert
@@ -22,7 +23,6 @@ pool:
     sshPublicKey: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDIrVI7mvTeZZM+Jc7Vp8nHKZ544pu/Et7umxsYYKaKseYoc197HHId6AOjM2dgAiitfRrrwK9uYdhRfgry8Xn0ts2Lf7VtgHoCfGOgru+rdp093fKIZ/cj9pa5c49sOHPv3VVt+n4sdM04O67fZAP50JhFF3/Z1kQXjIrYr2buYMD95vKFt7xqSc9Jy+kBRSzU97CfoiPgCCPui445nqeMX6dXU0x0A82KydgK9/8qOgXOy4c9XZenvgfa6zw0T/rnNLziaUZXzcHckseak07S2Iy3yZSqCWrlaObK6q8KhJO5hCONclrpqgpc+vDzox0lYtjJlC6fdDPmLGyvT3DN samar@DESKTOP-C30U090'
     sshKeySecureFile: 'githubCert.secureFilePath'
 
-steps:
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'
