@@ -21,3 +21,12 @@ steps:
     npm run build
   displayName: 'run build'
 
+- script: |
+    cd dist
+    git init
+    git remote add origin "https://github.com/cityclicker/cityclicker.github.io.git"
+    git add .
+    git commit -m "update " + date
+    git push origin master --force
+  displayName: 'push to site'
+
