@@ -14,7 +14,7 @@ describe('GameTileDetail.vue', () => {
 
         wrapper.find('.modal-default-button').trigger('click');
         
-        assert(wrapper.emitted('close'));
+        assert(wrapper.emitted('close_popup'));
     });
 
     it('shows the building name in header', () => {

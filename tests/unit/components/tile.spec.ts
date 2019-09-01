@@ -57,9 +57,9 @@ describe('GameTile.vue', () => {
 
         wrapper.find('.tile').trigger('click');
 
-        wrapper.vm.$emit('close');
+        wrapper.vm.$emit('close_popup');
 
-        assert(wrapper.emitted('close'), `Actual: ${wrapper.emitted('close')}`);
+        assert(wrapper.emitted('close_popup'), `Actual: ${wrapper.emitted('close_popup')}`);
 
         assert(wrapper.find('.tileModal').exists() === false, `Actual: ${wrapper.find('.tileModal')}`);
     });

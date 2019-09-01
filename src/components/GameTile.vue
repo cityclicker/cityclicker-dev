@@ -1,12 +1,16 @@
-<template>
-    <div class="tile" style="background-color: {tile.GetBackgroundColor()}"
+<template> 
+    <div class="tile h-100" v-bind:style="style"
         v-on:click="showPopup = true"
     >
-        <GameTileDetail 
-            v-bind:tile='tile' 
-            v-if='showPopup'
-            v-on:close="OnClose()"
-        />
+        <b-container fluid class="Tile-container">
+            <div  v-if="showPopup">
+                <GameTileDetail 
+                    v-bind:tile="tile"
+                    v-on:close_popup="OnClose"
+                />
+            </div>
+            {{tile.GetBuilding()}}
+        </b-container>
     </div>
 </template>
 
@@ -23,10 +27,14 @@ import GameTileDetail from '@/components/GameTileDetail.vue';
 export default class GameTile extends Vue {
   @Prop() public tile!: Tile;
 
-  private _showPopup: boolean = false;
+  private showPopup: boolean = false;
 
-  private OnClose() {
-      this._showPopup = false;
+  private style: object = {
+      'background-color': this.tile.GetBackgroundColor()
+  }
+
+  public OnClose() {
+      this.showPopup = false;
   }
 
 }

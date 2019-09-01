@@ -13,7 +13,7 @@
             </div>
 
             <div class="modal-footer">
-                <button class="modal-default-button" v-on:click="$emit('close')">
+                <button class="modal-default-button" v-on:click.stop="$emit('close_popup')">
                   X
                 </button>
             </div>

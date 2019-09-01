@@ -28,6 +28,10 @@ export default class Main {
         return this._timeAlive;
     }
 
+    public GetMap() {
+        return this._map;
+    }
+
     private _loop() {
         if (this._running) {
             this._timeAlive++;
