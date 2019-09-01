@@ -12,7 +12,7 @@ export default class Map {
     }   
 
     public GetTile(pos: Coordinates ): Tile {
-        return new Tile();
+        return new Tile(pos);
     }
 
     public GetSize(): [number, number] {

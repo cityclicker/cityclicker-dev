@@ -1,11 +1,18 @@
 import { assert } from 'chai';
-import { shallowMount } from '@vue/test-utils';
+import { shallowMount, createLocalVue } from '@vue/test-utils';
 import GameTileDetail from '@/components/GameTileDetail.vue';
 import Tile from '@/game/models/tile';
 
+const localVue = createLocalVue();
+
+import BootstrapVue from 'bootstrap-vue';
+localVue.use(BootstrapVue);
+
 describe('GameTileDetail.vue', () => {
+    const pos = {xPos: 1, yPos: 1};
+
     it('closes when button is clicked', () => {
-        const tile = new Tile();
+        const tile = new Tile(pos);
         const wrapper = shallowMount(GameTileDetail, {
             propsData: {
                 tile,
@@ -18,7 +25,7 @@ describe('GameTileDetail.vue', () => {
     });
 
     it('shows the building name in header', () => {
-        const tile = new Tile();
+        const tile = new Tile(pos);
         const wrapper = shallowMount(GameTileDetail, {
             propsData: {
                 tile,
@@ -29,7 +36,7 @@ describe('GameTileDetail.vue', () => {
     });
 
     it('shows building stats in body', () => {
-        const tile = new Tile();
+        const tile = new Tile(pos);
         const wrapper = shallowMount(GameTileDetail, {
             propsData: {
                 tile,

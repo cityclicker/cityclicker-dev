@@ -1,16 +1,28 @@
 import { assert } from 'chai';
-import { mount, shallowMount } from '@vue/test-utils';
+import { mount, shallowMount, createLocalVue } from '@vue/test-utils';
 import TileComponent from '@/components/GameTile.vue';
 import Tile from '@/game/models/tile';
 import BaseBuilding from '@/game/models/buildings/baseBuilding';
 
 
 describe('GameTile.vue', () => {
+    const pos = { xPos: 1, yPos: 1 };
+
+    const getWrapper = () => {
+        const tile = new Tile(pos);
+        const wrapper = shallowMount(TileComponent, {
+            propsData: {
+                tile,
+            },
+            stubs: ['b-container'],
+        });
+
+        return wrapper;
+    };
+
     it('renders background color', () => {
-        const tile = new Tile();
-        const wrapper = shallowMount(TileComponent, {propsData: { 
-            tile,
-        }});
+        const tile = new Tile(pos);
+        const wrapper = getWrapper();
 
         const style = wrapper.find('.tile').attributes('style');
 
@@ -21,10 +33,7 @@ describe('GameTile.vue', () => {
     });
 
     it('changes color on update', () => {
-        const tile = new Tile();
-        const wrapper = shallowMount(TileComponent, {propsData: { 
-            tile,
-        }});
+        const wrapper = getWrapper();
 
         wrapper.setProps({tile: new BaseBuilding()});
 
@@ -32,15 +41,12 @@ describe('GameTile.vue', () => {
 
         if (style) {
             assert(style.indexOf(wrapper.props('tile').GetBackgroundColor()) >= 0,
-               `Actual ${wrapper.find('.tile').attributes('style')}`);
+                `Actual ${wrapper.find('.tile').attributes('style')} -- Expected ${wrapper.props('tile').GetBackgroundColor()}`);
         }
     });
 
     it('shows popup on click', () => {
-        const tile = new Tile();
-        const wrapper = mount(TileComponent, {propsData: { 
-            tile,
-        }});
+        const wrapper = getWrapper();
 
         wrapper.find('.tile').trigger('click');
 
@@ -48,12 +54,7 @@ describe('GameTile.vue', () => {
     });
 
     it('hides popup on emit', () => {
-        const tile = new Tile();
-        const wrapper = mount(TileComponent, {
-        propsData: {
-            tile,
-        },
-        });
+        const wrapper = getWrapper();
 
         wrapper.find('.tile').trigger('click');
 
@@ -65,13 +66,8 @@ describe('GameTile.vue', () => {
     });
 
     it('popup is repeatable', () => {
-        const tile = new Tile();
-        const wrapper = mount(TileComponent, {
-            propsData: {
-                tile,
-            },
-        });
-
+        const wrapper = getWrapper();
+ 
         wrapper.find('.tile').trigger('click');
 
         wrapper.vm.$emit('close');
