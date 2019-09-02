@@ -11,6 +11,7 @@ describe('Game.vue', () => {
   it('renders props.msg when passed', () => {
     const msg = 'new message';
     const wrapper = shallowMount(Game, {
+        stubs: ['b-container', 'b-row', 'b-col'],
     });
   });
 });

@@ -8,7 +8,7 @@ import BaseBuilding from '@/game/models/buildings/baseBuilding';
 describe('GameTile.vue', () => {
     const pos = { xPos: 1, yPos: 1 };
 
-    const getWrapper = () => {
+    const getWrapper: any = () => {
         const tile = new Tile(pos);
         const wrapper = shallowMount(TileComponent, {
             propsData: {

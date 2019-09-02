@@ -8,21 +8,21 @@ import StartingValues from '@/game/interfaces/startingValues';
 
 export default class Main {
     public gameStats: GameStats;
+    public map: Map;
+    public player: Player;
 
     private _running: boolean;
     private _timeAlive: number;
-    private _map: Map;
-    private _player: Player;
     private _frameRate: number;
     private _lastTick: number;
 
     constructor(values?: StartingValues) {
         this.gameStats = new GameStats();
+        this.map = values && values.map ? values.map : new Map(4, 4);
+        this.player = values && values.player ? values.player : new Player();
 
         this._running = false;
         this._timeAlive = this._lastTick = 0;
-        this._map = values && values.map ? values.map : new Map( 4, 4 );
-        this._player = values && values.player ? values.player : new Player();
         this._frameRate = values && values.frameRate ? values.frameRate : 40;
 
         // starting cash
@@ -30,9 +30,9 @@ export default class Main {
             if (!values.startingCash || values.startingCash < 10) {
                 values.startingCash = 10;
             }
-            this._player.RecieveIncome(Currency.CityBux, values.startingCash);
+            this.player.RecieveIncome(Currency.CityBux, values.startingCash);
         } else {
-            this._player.RecieveIncome(Currency.CityBux, 10);
+            this.player.RecieveIncome(Currency.CityBux, 10);
         }
     }
 
@@ -52,14 +52,6 @@ export default class Main {
 
     public TimeAlive() {
         return this._timeAlive;
-    }
-
-    public GetMap() {
-        return this._map;
-    }
-
-    public GetPlayer() {
-        return this._player;
     }
 
     public RunNextTick() {
