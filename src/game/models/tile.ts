@@ -31,7 +31,7 @@ export default class Tile {
     }
 
     public GetCoordinates(): Coordinates {
-        return {xPos: 1, yPos: 1};
+        return this._coordinates;
     }
 
     public GetProperties(): BuildingProperties {

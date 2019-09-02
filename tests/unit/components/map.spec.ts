@@ -17,6 +17,7 @@ describe('GameMape.vue', () => {
             propsData: {
                 map,
             },
+            stubs: ['b-container', 'b-row', 'b-column' ],
         });
 
         assert(wrapper.findAll(TileComponent).length === 4);

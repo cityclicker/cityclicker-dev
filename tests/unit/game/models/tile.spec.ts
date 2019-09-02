@@ -4,7 +4,7 @@ import Tile from '@/game/models/tile.ts';
 import BaseBuilding from '@/game/models/buildings/baseBuilding';
 
 describe('tile.ts', () => {
-    const pos = { xPos: 1, yPos: 1 };
+    const pos = { xPos: 3, yPos: 4 };
 
     describe('GetBuilding()', () => {
         it('returns type name', () => {
@@ -42,6 +42,14 @@ describe('tile.ts', () => {
             tile.SetBuilding(building);
 
             assert(tile.GetBackgroundColor() === building.GetBackgroundColor());
+        });
+    });
+
+    describe('GetCoordinates()', () => {
+        it('returns tile coordinates', () => {
+            const tile = new Tile(pos);
+
+            assert(tile.GetCoordinates().xPos === pos.xPos && tile.GetCoordinates().yPos === pos.yPos);
         });
     });
 });
