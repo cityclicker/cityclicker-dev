@@ -2,6 +2,8 @@ import { assert } from 'chai';
 import Main from '@/game/main.ts';
 
 describe('main.ts', () => {
+    // TODO: test constructor values
+
     describe('inital values', () => {
         it('Game is initially stopped', () => {
             const game = new Main();
@@ -64,6 +66,20 @@ describe('main.ts', () => {
             game.Stop();
 
             assert(!game.Running());
+        });
+    });
+
+    describe('RunNextTick()', () => {
+        it('Increment Time Alive', () => {
+            const game = new Main();
+
+            game.RunNextTick();
+
+            assert(game.TimeAlive() === 1);
+
+            game.RunNextTick();
+
+            assert(game.TimeAlive() === 2);
         });
     });
 });

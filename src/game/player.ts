@@ -1,13 +1,15 @@
 import { Currency, ActionResult } from '@/game/utils/enums';
+import BalanceUtils from '@/game/utils/balances';
+
 
 export default class Player {
 
+    private _balanceUtils: BalanceUtils;
     private _balances: Record<Currency, number>;
 
     constructor() {
-        this._balances = {
-            CITYBUX: 0,
-        };
+        this._balanceUtils = new BalanceUtils();
+        this._balances = this._balanceUtils.NewBalances();
     }
 
     public GetBalance(currencyType: Currency): number {
