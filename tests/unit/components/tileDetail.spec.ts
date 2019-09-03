@@ -46,8 +46,8 @@ describe('GameTileDetail.vue', () => {
             const actual = wrapper.find('.modal-body').text();
 
             assert(actual.indexOf(tile.GetProperties().level.toString()) > 0, `Actual ${actual} -- Expected ${tile.GetProperties().level}`);
-            assert(actual.indexOf(tile.GetCoordinates().xPos.toString()) > 0 &&
-                actual.indexOf(tile.GetCoordinates().yPos.toString()) > 0,
+            assert(actual.indexOf(tile.coordinates.xPos.toString()) > 0 &&
+                actual.indexOf(tile.coordinates.yPos.toString()) > 0,
                 `Actual ${actual} -- Expected ${tile.GetProperties().level}`);
         });
     });

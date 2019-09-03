@@ -1,13 +1,14 @@
-<template>
+np<template>
     <div>
         <b-container fluid class="map-container">
             <div v-if="map">
+                {{map.GetSize()}}
                 <div v-for="x in map.GetSize()[0]" :key="x">
                     <b-row>
                         <div v-for="y in map.GetSize()[1]" :key="y">
                             <b-col>
                                 <div class="tileContainer">
-                                    <GameTile v-bind:tile="map.GetTile(x, y)"/>
+                                    <GameTile v-bind:tile="map.tiles[x-1][y-1]"/>
                                 </div>
                             </b-col>
                         </div>

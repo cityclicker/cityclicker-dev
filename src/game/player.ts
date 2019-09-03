@@ -5,7 +5,7 @@ import BalanceUtils from '@/game/utils/balances';
 export default class Player {
 
     private _balanceUtils: BalanceUtils;
-    private _balances: Record<Currency, number>;
+    private _balances: Map<Currency, number>;
 
     constructor() {
         this._balanceUtils = new BalanceUtils();
@@ -13,7 +13,8 @@ export default class Player {
     }
 
     public GetBalance(currencyType: Currency): number {
-        return this._balances.CITYBUX;
+        const value = this._balances.get(Currency.CityBux);
+        return value ? value : 0;
     }
 
     public RecieveIncome(currencyType: Currency, incomeAmount: number): ActionResult {
@@ -21,7 +22,12 @@ export default class Player {
             return ActionResult.InvalidInput;
         }
 
-        this._balances.CITYBUX += incomeAmount;
+        let value = this._balances.get(Currency.CityBux);
+
+        if (!value) {
+            value = 0;
+        }
+        this._balances.set(Currency.CityBux, value + incomeAmount);
 
         return ActionResult.Success;
     }
@@ -31,7 +37,12 @@ export default class Player {
             return ActionResult.InvalidInput;
         }
 
-        this._balances.CITYBUX -= incomeAmount;
+        let value = this._balances.get(Currency.CityBux);
+
+        if (!value) {
+            value = 0;
+        }
+        this._balances.set(Currency.CityBux, value - incomeAmount);
 
         return ActionResult.Success;
     } 

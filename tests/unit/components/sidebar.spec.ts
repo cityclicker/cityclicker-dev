@@ -6,12 +6,13 @@ import GameStats from '@/game/models/gameStats';
 const localVue = createLocalVue();
 
 import BootstrapVue from 'bootstrap-vue';
+import { Currency } from '@/game/utils/enums';
 localVue.use(BootstrapVue);
 
 describe('GameSidebar.vue', () => {
     const getWrapper: any = () => {
         const stats = new GameStats();
-        stats.balances.CITYBUX = 100;
+        stats.balances.set(Currency.CityBux, 100);
         return shallowMount(GameSidebar, {
             propsData: {
                 stats,

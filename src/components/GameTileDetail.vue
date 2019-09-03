@@ -9,8 +9,8 @@
             </div>
 
             <div class="modal-body">
-                <span>Level: {{tile.GetProperties().level}}</span>
-                <span>Coordinates: ({{tile.GetCoordinates().xPos}}, {{tile.GetCoordinates().yPos}}) </span>
+                <p>Level: {{tile.GetProperties().level}}</p>
+                <p>Coordinates: ({{tile.coordinates.xPos}}, {{tile.coordinates.yPos}}) </p>
             </div>
 
             <div class="modal-footer">

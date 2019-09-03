@@ -1,17 +1,18 @@
 <template> 
-    <div v-if="tile" 
+    <div
         class="tile h-100" 
-        style="background-color: this.tile.GetBackgroundColor()"
         v-on:click="showPopup = true"
+        v-bind:style="{'background-color': tile.building.backgroundColor}"
     >
-        <b-container fluid class="Tile-container">
+        <b-container fluid class="tile-container h-100" >
             <div  v-if="showPopup">
                 <GameTileDetail 
                     v-bind:tile="tile"
                     v-on:close_popup="OnClose"
                 />
             </div>
-            {{tile.GetBuilding()}}
+            {{tile.building.name}}
+            {{tile.coordinates}}
         </b-container>
     </div>
 </template>

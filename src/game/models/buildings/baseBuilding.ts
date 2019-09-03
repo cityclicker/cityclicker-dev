@@ -3,13 +3,13 @@ import BuildingProperties from './buildingProperties';
 
 export default class BaseBuilding implements Building {
     public name: string;
-    protected _level: number;  
-    protected _backgroundColor: string;
+    public backgroundColor: string;
+    protected _level: number; 
 
     constructor() {
         this.name = 'BaseBuilding';
         this._level = 1;       
-        this._backgroundColor = 'rgb(29, 29, 225)';
+        this.backgroundColor = 'rgb(29, 29, 225)';
     }
 
     public GetLevel(): number {
@@ -20,10 +20,6 @@ export default class BaseBuilding implements Building {
         this._level++;
 
         return this.GetLevel();
-    }
-
-    public GetBackgroundColor(): string {
-        return this._backgroundColor;
     }
 
     public GetProperties(): BuildingProperties {

@@ -1,40 +1,23 @@
 import Building from '../interfaces/building';
 import EmptyLot from './buildings/emptyLot';
 import BuildingProperties from './buildings/buildingProperties';
-import Coordinates from '@/game/interfaces/coordinates';
+import Coordinates from '@/game/models/coordinates';
 
 export default class Tile {
-    private _building: Building;
-    private _coordinates: Coordinates;
+    public building: Building;
+    public coordinates: Coordinates;
 
     constructor(coordinates: Coordinates, building?: Building) {
         if (building) {
-            this._building = building;
+            this.building = building;
         } else {
-            this._building = new EmptyLot();
+            this.building = new EmptyLot();
         }
 
-        this._coordinates = coordinates;
-    }
-
-    public SetBuilding(building: Building): string {
-        this._building = building;
-        return this.GetBuilding();
-    }
-
-    public GetBuilding(): string {
-        return this._building.name;
-    }
-
-    public GetBackgroundColor(): string {
-        return this._building.GetBackgroundColor();
-    }
-
-    public GetCoordinates(): Coordinates {
-        return this._coordinates;
+        this.coordinates = coordinates;
     }
 
     public GetProperties(): BuildingProperties {
-        return this._building.GetProperties();
+        return this.building.GetProperties();
     }
 }

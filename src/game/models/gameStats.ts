@@ -1,8 +1,8 @@
-import { Currency} from '@/game/utils/enums';
+import { Currency } from '@/game/utils/enums';
 import BalanceUtils from '@/game/utils/balances';
 
 export default class GameStats {
-    public balances: Record<Currency, number>;
+    public balances: Map<Currency, number>;
 
     private _balanceUtils: BalanceUtils;
 

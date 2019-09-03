@@ -1,10 +1,10 @@
 import { Currency } from '@/game/utils/enums';
 
 export default class BalanceUtils {
-    public NewBalances(): Record<Currency, number>  {
-        const value: Record<Currency, number > = {
-            CITYBUX: 0,
-        };
+    public NewBalances(): Map<Currency, number>  {
+        const value: Map<Currency, number > = new Map([
+            [Currency.CityBux, 0],
+        ]);
 
         return value;
     }

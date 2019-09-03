@@ -7,7 +7,7 @@ export default class EmptyLot extends BaseBuilding {
         super();
 
         this.name = 'EmptyLot';
-        this._backgroundColor = 'rgb(224, 224, 209)';
+        this.backgroundColor = 'rgb(224, 224, 209)';
     }
 
     public GetLevel(): number {

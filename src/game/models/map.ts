@@ -1,7 +1,8 @@
 import Tile from './tile';
-import Coordinates from '../interfaces/coordinates';
+import Coordinates from '@/game/models/coordinates';
 
 export default class Map {
+    public tiles: Tile[][];
 
     private _xSize: number;
     private _ySize: number;
@@ -9,10 +10,14 @@ export default class Map {
     constructor(xSize: number, ySize: number) {
         this._xSize = xSize;
         this._ySize = ySize;
-    }   
+        this.tiles = [[]];
 
-    public GetTile(pos: Coordinates ): Tile {
-        return new Tile(pos);
+        for (let x = 0; x < xSize; x++) {
+            this.tiles[x] = [];
+            for (let y = 0; y < xSize; y++) {
+                this.tiles[x][y] = new Tile(new Coordinates(x, y));
+            }
+        }
     }
 
     public GetSize(): [number, number] {

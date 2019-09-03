@@ -3,6 +3,7 @@ import { mount, shallowMount, createLocalVue } from '@vue/test-utils';
 import TileComponent from '@/components/GameTile.vue';
 import Tile from '@/game/models/tile';
 import BaseBuilding from '@/game/models/buildings/baseBuilding';
+import Coordinates from '@/game/models/coordinates';
 
 
 describe('GameTile.vue', () => {
@@ -27,7 +28,7 @@ describe('GameTile.vue', () => {
         const style = wrapper.find('.tile').attributes('style');
 
         if (style) {
-            assert(style.indexOf(tile.GetBackgroundColor()) >= 0, 
+            assert(style.indexOf(tile.building.backgroundColor) >= 0, 
                 `Actual ${wrapper.find('.tile').attributes('style')}`);
         }
     });
@@ -35,13 +36,15 @@ describe('GameTile.vue', () => {
     it('changes color on update', () => {
         const wrapper = getWrapper();
 
-        wrapper.setProps({tile: new BaseBuilding()});
+        const building = new BaseBuilding();
+
+        wrapper.setProps({tile: new Tile(new Coordinates(1,2), building)});
 
         const style = wrapper.find('.tile').attributes('style');
 
         if (style) {
-            assert(style.indexOf(wrapper.props('tile').GetBackgroundColor()) >= 0,
-                `Actual ${wrapper.find('.tile').attributes('style')} -- Expected ${wrapper.props('tile').GetBackgroundColor()}`);
+            assert(style.indexOf(building.backgroundColor) >= 0,
+                `Actual ${wrapper.find('.tile').attributes('style')} -- Expected ${building.backgroundColor}`);
         }
     });
 

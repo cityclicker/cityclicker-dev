@@ -8,6 +8,6 @@ export default class BuildingProperties {
     constructor(building: Building) {
         this.level = building.GetLevel();
         this.name = building.name;
-        this.backgroundColor = building.GetBackgroundColor();
+        this.backgroundColor = building.backgroundColor;
     }
 }

@@ -2,15 +2,6 @@ import { assert } from 'chai';
 import Map from '@/game/models/map.ts';
 
 describe('map.ts', () => {
-    describe('GetTile()', () => {
-        it('returns a tile object', () => {
-            const map = new Map( 2, 2 );
-
-            const tile = map.GetTile({xPos: 1, yPos: 1});
-
-            assert(tile.GetBuilding() === 'EmptyLot');
-        });
-    });
 
     describe('GetSize()', () => {
         const runs: Array<[number, number]> = [

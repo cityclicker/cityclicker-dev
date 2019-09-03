@@ -1,10 +1,10 @@
 <template>
-    <div>
+    <div class="stats">
         <b-container fluid class="game-sidebar">
-            <div class="stats" v-if="gameStats">
+            <div v-if="gameStats">
                 <h3>Stats</h3>
-                <div>{{gameStats.balances.CITYBUX}}</div>
-                <div v-for="id in GetCurrencyStrings()" :key="id">
+                <div>{{gameStats.balances.get(Currency.CityBux)}}</div>
+                <div v-for="id in currencyStringsCache" :key="id">
                     {{currencyStringsCache[id]}}
                 </div>
             </div>
@@ -31,7 +31,21 @@ export default class Game extends Vue {
     private currencyStrings: CurrencyStrings = new CurrencyStrings();
 
     public GetCurrencyStrings(): string[] {
-        return [];
+        const list: string[] = [];
+
+        if (this.gameStats) {
+            const curStr = this.currencyStrings.GetStrings();
+
+            // tslint:disable-next-line
+            for (const c in Currency) {
+                list[length - 1] = curStr.get((Currency as any)[c]) + ': ' 
+                    + this.gameStats!.balances.get((Currency as any)[c]);
+            }
+        }
+
+        this.currencyStringsCache = list;
+
+        return list;
 
     }
 }
