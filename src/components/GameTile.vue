@@ -12,7 +12,6 @@
                 />
             </div>
             {{tile.building.name}}
-            {{tile.coordinates}}
         </b-container>
     </div>
 </template>

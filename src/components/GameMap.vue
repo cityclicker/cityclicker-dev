@@ -1,8 +1,7 @@
 np<template>
     <div>
         <b-container fluid class="map-container">
-            <div v-if="map">
-                {{map.GetSize()}}
+            <div v-if="map" class="justify-content-md-center">
                 <div v-for="x in map.GetSize()[0]" :key="x">
                     <b-row>
                         <div v-for="y in map.GetSize()[1]" :key="y">

@@ -1,5 +1,5 @@
 export enum Currency {
-    CityBux = 'CITYBUX',
+    CITYBUX = 'CityBux',
 }
 
 export enum ActionResult {

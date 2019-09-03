@@ -7,7 +7,7 @@ describe('player.ts', () => {
         it('has an initial 0 balance', () => {
             const player = new Player();
 
-            assert(player.GetBalance(Currency.CityBux) === 0 );
+            assert(player.GetBalance(Currency.CITYBUX) === 0 );
         });
     });
 
@@ -15,7 +15,7 @@ describe('player.ts', () => {
         it('returns success with a valid value', () => {
             const player = new Player();
 
-            const result = player.RecieveIncome(Currency.CityBux, 10);
+            const result = player.RecieveIncome(Currency.CITYBUX, 10);
             const expected = ActionResult.Success;
 
             assert( result === expected, result );
@@ -24,9 +24,9 @@ describe('player.ts', () => {
         it('updates balance', () => {
             const player = new Player();
 
-            player.RecieveIncome(Currency.CityBux, 10);
+            player.RecieveIncome(Currency.CITYBUX, 10);
 
-            const result = player.GetBalance(Currency.CityBux);
+            const result = player.GetBalance(Currency.CITYBUX);
             const expected = 10;
 
             assert(result === expected, result.toString());
@@ -35,7 +35,7 @@ describe('player.ts', () => {
         it('doesnt allow negative values', () => {
             const player = new Player();
 
-            const result = player.RecieveIncome(Currency.CityBux, -10);
+            const result = player.RecieveIncome(Currency.CITYBUX, -10);
             const expected = ActionResult.InvalidInput;
 
             assert(result === expected, result);
@@ -45,7 +45,7 @@ describe('player.ts', () => {
             it('returns success with a valid value', () => {
                 const player = new Player();
 
-                const result = player.RecieveIncome(Currency.CityBux, 10);
+                const result = player.RecieveIncome(Currency.CITYBUX, 10);
                 const expected = ActionResult.Success;
 
                 assert(result === expected, result);
@@ -54,11 +54,11 @@ describe('player.ts', () => {
             it('updates balance', () => {
                 const player = new Player();
 
-                player.RecieveIncome(Currency.CityBux, 10);
+                player.RecieveIncome(Currency.CITYBUX, 10);
 
-                player.MakePurchase(Currency.CityBux, 5);
+                player.MakePurchase(Currency.CITYBUX, 5);
 
-                const result = player.GetBalance(Currency.CityBux);
+                const result = player.GetBalance(Currency.CITYBUX);
                 const expected = 5;
 
                 assert(result === expected, result.toString());
@@ -67,7 +67,7 @@ describe('player.ts', () => {
             it('doesnt allow negative values', () => {
                 const player = new Player();
 
-                const result = player.MakePurchase(Currency.CityBux, -10);
+                const result = player.MakePurchase(Currency.CITYBUX, -10);
                 const expected = ActionResult.InvalidInput;
 
                 assert(result === expected, result);

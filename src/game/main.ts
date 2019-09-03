@@ -30,9 +30,9 @@ export default class Main {
             if (!values.startingCash || values.startingCash < 10) {
                 values.startingCash = 10;
             }
-            this.player.RecieveIncome(Currency.CityBux, values.startingCash);
+            this.player.RecieveIncome(Currency.CITYBUX, values.startingCash);
         } else {
-            this.player.RecieveIncome(Currency.CityBux, 10);
+            this.player.RecieveIncome(Currency.CITYBUX, 10);
         }
     }
 

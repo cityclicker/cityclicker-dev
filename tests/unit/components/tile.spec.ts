@@ -38,7 +38,7 @@ describe('GameTile.vue', () => {
 
         const building = new BaseBuilding();
 
-        wrapper.setProps({tile: new Tile(new Coordinates(1,2), building)});
+        wrapper.setProps({tile: new Tile(new Coordinates( 1, 2 ), building)});
 
         const style = wrapper.find('.tile').attributes('style');
 

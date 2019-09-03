@@ -13,7 +13,7 @@ export default class Player {
     }
 
     public GetBalance(currencyType: Currency): number {
-        const value = this._balances.get(Currency.CityBux);
+        const value = this._balances.get(Currency.CITYBUX);
         return value ? value : 0;
     }
 
@@ -22,12 +22,12 @@ export default class Player {
             return ActionResult.InvalidInput;
         }
 
-        let value = this._balances.get(Currency.CityBux);
+        let value = this._balances.get(Currency.CITYBUX);
 
         if (!value) {
             value = 0;
         }
-        this._balances.set(Currency.CityBux, value + incomeAmount);
+        this._balances.set(Currency.CITYBUX, value + incomeAmount);
 
         return ActionResult.Success;
     }
@@ -37,12 +37,12 @@ export default class Player {
             return ActionResult.InvalidInput;
         }
 
-        let value = this._balances.get(Currency.CityBux);
+        let value = this._balances.get(Currency.CITYBUX);
 
         if (!value) {
             value = 0;
         }
-        this._balances.set(Currency.CityBux, value - incomeAmount);
+        this._balances.set(Currency.CITYBUX, value - incomeAmount);
 
         return ActionResult.Success;
     } 

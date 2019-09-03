@@ -12,7 +12,7 @@ localVue.use(BootstrapVue);
 describe('GameSidebar.vue', () => {
     const getWrapper: any = () => {
         const stats = new GameStats();
-        stats.balances.set(Currency.CityBux, 100);
+        stats.balances.set(Currency.CITYBUX, 100);
         return shallowMount(GameSidebar, {
             propsData: {
                 stats,
